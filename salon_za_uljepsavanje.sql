@@ -7,8 +7,6 @@ use salon_za_uljepsavanje;
 create table djelatnica(
 sifra int not null primary key auto_increment,
 ime varchar (50) not null,
-prezime varchar (50) not null,
-korisnik int not null,
 oib char (11) not null,
 opis text
 );
@@ -17,7 +15,8 @@ create table korisnik(
 sifra int not null primary key auto_increment,
 usluga int not null,
 redni_broj varchar (50),
-opis text
+opis text,
+djelatnica int
 );
 
 create table usluga(
@@ -28,7 +27,7 @@ datum date not null,
 cijena decimal (15,4)
 );
 
-alter table djelatnica add foreign key (korisnik) references korisnik (sifra);
+alter table korisnik add foreign key (djelatnica) references djelatnica (sifra);
 
 alter table korisnik add foreign key (usluga) references usluga (sifra);
 
@@ -38,11 +37,11 @@ insert into usluga (naziv, opis, datum, cijena)
 values ('bojanje', 5, '2020-05-05', 100);
 
 #describe korisnik;
-insert into korisnik ( usluga, redni_broj, opis)
-values (1, 22, null);
+insert into korisnik ( usluga, redni_broj, opis, djelatnica)
+values (1, 22, null, null);
 
 #show tables;
 #select * from korisnik;
 #describe djelatnica;
-insert into djelatnica (ime, prezime, korisnik, oib, opis)
-values ('Marina', 'Matić', 1, '53330062407', null);
+insert into djelatnica (ime, oib, opis)
+values ('Marina', '53330062407', null);
