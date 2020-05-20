@@ -39,7 +39,8 @@ create table usluga(
 	vrsta 		varchar (50) not null,
 	naziv 		varchar (50) not null,
 	opis 		text not null,
-	redni_broj 	varchar (1000) not null
+	redni_broj 	varchar (1000) not null,
+	datum 		date not null
 );
 
 create table hotelska_usluga(
@@ -53,6 +54,28 @@ alter table usluga_djelatnika add foreign key (usluga) references usluga (id);
 
 alter table hotelska_usluga add foreign key (usluga) references usluga (id);
 alter table hotelska_usluga add foreign key (gost) references gost (id);
+
+#show tables;
+#describe direktor;
+
+insert into direktor(ime, prezime, email)
+values ('Marko', 'Markić', 'markomarkicc@mail.com');
+
+#describe djelatnik;
+
+insert into djelatnik(ime, prezime, oib, radno_mjesto)
+values ('Rade', 'Radić', 88016235844, 'vrtlar');
+
+#describe usluga;
+
+insert into usluga(vrsta, naziv, opis, redni_broj, datum)
+values ('privatni_izlet', 'elafiti', 'cjelodnevni_izlet', 150, '2020-07-07');
+
+#describe gost;
+
+insert into gost(ime, prezime, email, datum_rodjenja, drzavljanstvo)
+values ('Henry', 'Smith', 'henrysmith@mail.com', '1970-12-20', 'GBR');
+
 
 
 
