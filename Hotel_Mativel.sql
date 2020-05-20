@@ -40,7 +40,8 @@ create table usluga(
 	naziv 		varchar (50) not null,
 	opis 		text not null,
 	redni_broj 	varchar (1000) not null,
-	datum 		date not null
+	datum 		date not null,
+	cijena 		decimal (15,5) not null
 );
 
 create table hotelska_usluga(
@@ -68,8 +69,8 @@ values ('Rade', 'Radić', 88016235844, 'vrtlar');
 
 #describe usluga;
 
-insert into usluga(vrsta, naziv, opis, redni_broj, datum)
-values ('privatni_izlet', 'elafiti', 'cjelodnevni_izlet', 150, '2020-07-07');
+insert into usluga(vrsta, naziv, opis, redni_broj, datum, cijena)
+values ('privatni_izlet', 'elafiti', 'cjelodnevni_izlet', 150, '2020-07-07', 180);
 
 #describe gost;
 
