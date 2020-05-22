@@ -1,4 +1,4 @@
-#c:\xampp\mysql\bin\mysql -uedunova -pedunova < d:\jp22\kolokvij_vjezba_1.sql
+# c:\xampp\mysql\bin\mysql -uedunova -pedunova < d:\jp22\kolokvij_vjezba_1.sql
 
 drop database if exists kolokvij_vjezba_1;
 create database kolokvij_vjezba_1;
@@ -88,7 +88,59 @@ alter table punac add foreign key (cura) references cura (sifra);
 
 #describe cura;
 insert into cura (bojakose, jmbag, prstena)
-values ('crna', 12345678910, 123);
+values 
+('crna', 12345678910, 123),
+('plava', 65006445876, 124),
+('crvena', 45301415721, 125);
 
 select * from cura;
 
+#describe ostavljena;
+insert into ostavljena(jmbag, bojaociju, suknja, bojakose, prviputa, carape)
+values
+(null, null, 'kratka', 'plava', null, 'duge' ),
+(null, null, 'duga', 'crna', null, 'kratke'),
+(null, null, 'srednja', 'smedja', null, 'zute');
+select * from ostavljena;
+
+#describe snasa;
+insert into snasa(eura, narukvica, drugiputa, carape)
+values
+(null, null, '2020-04-30', null),
+(null, null, '2020-05-15', null),
+(null, null, '2020-05-20', null);
+select * from snasa;
+#describe ostavljena_snasa;
+insert into ostavljena_snasa(ostavljena, snasa)
+values
+(1, 1),
+(2, 2),
+(3, 3);
+select * from ostavljena_snasa;
+
+#describe mladic;
+
+insert into mladic(prstena, maraka, suknja, narukvica, ostavljena)
+values
+(1, 100, null, 1, 1),
+(1, 200, null, 1, 2),
+(1, 200, null, 1, 3);
+select * from mladic;
+
+insert into sestra(jmbag, hlace, vesta, prviputa, modelnaocala, becar)
+values (null, 'levis', null, '2020-01-30', null, null);
+#describe sestra;
+select * from sestra;
+update sestra set hlace='Osijek' where sifra=1;
+
+#describe punac;
+select * from punac;
+
+insert into punac(ekstroventno, vesta, asocijalno, prviputa, eura, cura)
+values(0, null, 0, null, 100, null);
+
+#describe mladic;
+select * from mladic;
+
+select suknja from mladic 
+where sifra=3;
