@@ -55,7 +55,7 @@ values ('Vlaho','Bukovac', 'Dubrovnik');
 insert into galerija (slika, mjesto, autor)
 values (null, 1, 1);
 
-#describe slika;
+describe slika;
 
 insert into slika (autor, godina, mjesto)
-values (1, 1900, 1);
+values (1, 1800, 1);
